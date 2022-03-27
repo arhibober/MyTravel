@@ -1,0 +1,1 @@
+SELECT post_id as PID, count(*) as c FROM wp_ulike GROUP BY ip ORDER BY c DESC  left JOIN (SELECT ID as PID FROM wp_posts where PID NOT IN(SELECT post_id FROM wp_ulike) AND PIN NOT IN ((SELECT id from wp_posts where post_title in('Общая','Новости','Главные новости','Работы учеников','Расписание','Активные вакансии','Вопросы и ответы','Исключающая','Учебные материалы'))))
